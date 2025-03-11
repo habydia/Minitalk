@@ -24,7 +24,7 @@ LIBFT = $(LIBDIR)/libft.a
 
 $(NAME): ft_server ft_client 
 
-$(LIBFT):
+$(LIBFT): FORCE
 	make -C $(LIBDIR)
 
 ft_server: $(SERVER_OBJ) $(LIBFT)
@@ -47,4 +47,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all minitalk server client clean fclean re libft
+
+FORCE:
 
