@@ -8,5 +8,10 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
+
+void    handler(int signal, siginfo_t *info, void *context);
+void    ack_handler(int sig);
+void client_signals(struct sigaction *sa);
+void server_signals(struct sigaction *sa);
 #endif
 

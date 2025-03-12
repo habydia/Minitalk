@@ -2,8 +2,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I ./include 
 
-SERVER = server.c
-CLIENT = client.c
+CLIENT_SIGNAL = ft_client_signals.c
+SERVER_SIGNAL = ft_server_signals.c
+SERVER = server.c $(SERVER_SIGNAL)
+CLIENT = client.c $(CLIENT_SIGNAL)
 
 SERVER_SRC = $(SERVER)
 SERVER_OBJ = $(SERVER:.c=.o)

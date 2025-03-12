@@ -44,16 +44,7 @@ int main(int argc, char **argv)
         return (-1);
     }
     
-    // Set up sigaction
-    sa.sa_sigaction = handler;
-    sa.sa_flags = SA_SIGINFO;
-    sigemptyset(&sa.sa_mask);
-    sigaddset(&sa.sa_mask, SIGUSR1);
-    sigaddset(&sa.sa_mask, SIGUSR2);
-    
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
-    
+    server_signals(&sa);
     write(1, "Server PID: ", 12);
     ft_putnbr_fd(id, 1);
     write(1, "\n", 1);
