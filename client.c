@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Hadia <Hadia@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/12 18:07:55 by Hadia             #+#    #+#             */
+/*   Updated: 2025/03/12 18:08:01 by Hadia            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/minitalk.h"
 
 volatile sig_atomic_t g_ack_received = 0;
@@ -62,7 +74,6 @@ int main(int argc, char **argv)
     {
         ft_putstr_fd("Usage: ./client [server_pid] [message]\n", 2);
         return (-1);
-    }
-        
+    }      
     return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Hadia <Hadia@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/12 18:07:46 by Hadia             #+#    #+#             */
+/*   Updated: 2025/03/12 18:11:32 by Hadia            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/minitalk.h"
 
 volatile sig_atomic_t g_received = 0;
@@ -25,8 +37,7 @@ void    handler(int signal, siginfo_t *info, void *context)
         i = 0;
     }
     
-    // Send acknowledgment back to client
-    usleep(50);
+    usleep(100);
     kill(client_pid, SIGUSR1);
 }
 
@@ -43,7 +54,6 @@ int main(int argc, char **argv)
         write(1, "Use: ./server\n", 14);
         return (-1);
     }
-    
     server_signals(&sa);
     write(1, "Server PID: ", 12);
     ft_putnbr_fd(id, 1);
